@@ -3,10 +3,13 @@ package com.nttdata.services;
 import com.fasterxml.jackson.databind.MapperFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.nttdata.services.client.AccountApiClient;
+import com.nttdata.services.client.FlowApiClient;
 import com.nttdata.services.client.OrganizationApiClient;
 import com.nttdata.services.dto.FlowDto;
 import com.nttdata.services.model.AccountResponse;
+import com.nttdata.services.model.FlowResponse;
 import com.nttdata.services.model.OrganizationResponse;
+import com.nttdata.services.request.FlowRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -102,6 +105,8 @@ public class FlowMigrationApplication implements CommandLineRunner {
                 System.out.println("Cantidad de Sources: " + flow.getSources().size());
                 System.out.println("Cantidad de Targets: " + flow.getTargets().size());
 
+                testCreateFlow(flow);
+
             } catch (Exception e) {
                 System.out.println("Error al llamar al API: " + e.getMessage());
             }
@@ -111,5 +116,21 @@ public class FlowMigrationApplication implements CommandLineRunner {
             System.out.println("No se recibieron argumentos.");
         }
     }
+
+
+    @Autowired
+    private FlowApiClient flowApiClient;
+
+    public void testCreateFlow(FlowDto flow) {
+        FlowRequest request = new FlowRequest();
+        request.setTenantId(flow.getTenantId());
+        request.setName(flow.getName());
+        request.setFlowStatusId(flow.getFlowStatusId());
+        request.setDescription(flow.getDescription());
+
+        FlowResponse response = flowApiClient.createFlow("9d4ec223-0d61-41ad-809d-049f9380cc55", request);
+        System.out.println("ID del flujo creado: " + response.getId());
+    }
+
 
 }

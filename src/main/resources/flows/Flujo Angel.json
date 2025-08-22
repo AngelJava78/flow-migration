@@ -1,4 +1,18 @@
 {
+  "Id": 8826,
+  "TenantId": 135,
+  "Name": "Flujo Angel-ABCD",
+  "FlowStatusId": 1,
+  "IsBroadcast": false,
+  "IsPublished": false,
+  "IsIPaaSSubscription": true,
+  "ConnectorId": 1,
+  "Code": "FLE423",
+  "Description": "Flujo Angel",
+  "CreatedBy": "980",
+  "CreatedDate": "2025-08-22T06:48:29.033Z",
+  "UpdatedBy": "980",
+  "UpdatedDate": "2025-08-22T06:49:05.883Z",
   "Sources": [
     {
       "Configuration": {
@@ -130,19 +144,5 @@
       "CreatedBy": "980",
       "CreatedDate": "2025-08-22T06:48:52.11Z"
     }
-  ],
-  "Id": 8826,
-  "TenantId": 135,
-  "Name": "Flujo Angel",
-  "FlowStatusId": 1,
-  "IsBroadcast": false,
-  "IsPublished": false,
-  "IsIPaaSSubscription": true,
-  "ConnectorId": 1,
-  "Code": "FLE423",
-  "Description": "Flujo Angel",
-  "CreatedBy": "980",
-  "CreatedDate": "2025-08-22T06:48:29.033Z",
-  "UpdatedBy": "980",
-  "UpdatedDate": "2025-08-22T06:49:05.883Z"
+  ]
 }
