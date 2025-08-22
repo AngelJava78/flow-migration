@@ -1,5 +1,6 @@
 package com.nttdata.services;
 
+import com.fasterxml.jackson.databind.MapperFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.nttdata.services.client.AccountApiClient;
 import com.nttdata.services.client.OrganizationApiClient;
@@ -11,8 +12,11 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.openfeign.EnableFeignClients;
+import org.springframework.core.io.ClassPathResource;
 
 import java.io.File;
+import java.io.InputStream;
+import java.nio.file.Path;
 import java.util.List;
 
 @SpringBootApplication
@@ -84,11 +88,13 @@ public class FlowMigrationApplication implements CommandLineRunner {
                 System.out.println("Lectura del archivo");
                 ObjectMapper mapper = new ObjectMapper();
 
-                // Ruta relativa al archivo JSON
-                File file = new File("flows/Flujo Angel.json");
+                mapper.configure(MapperFeature.ACCEPT_CASE_INSENSITIVE_PROPERTIES, true);
 
-                // Mapeo del archivo al DTO
-                FlowDto flow = mapper.readValue(file, FlowDto.class);
+                // Ruta relativa al archivo JSON
+
+                ClassPathResource resource = new ClassPathResource("flows/Flujo Angel.json");
+                InputStream inputStream = resource.getInputStream();
+                FlowDto flow = mapper.readValue(inputStream, FlowDto.class);
 
                 // Ejemplo de uso
                 System.out.println("Nombre del flujo: " + flow.getName());

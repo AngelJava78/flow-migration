@@ -1,14 +1,19 @@
 package com.nttdata.services.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
 import java.util.List;
 
 @Data
 public class FlowEndpointDto {
+    @JsonProperty("Configuration")
     private FlowEndpointConfigurationDto configuration;
+    @JsonProperty("Schedule")
     private FlowEndpointScheduleDto schedule;
+    @JsonProperty("ServerPaths")
     private List<FlowEndpointServerPathDto> serverPaths;
+    @JsonProperty("ServerPathMappings")
     private List<FlowEndpointServerPathMappingDto> serverPathMappings;
     private List<Object> serverUsers;
     private List<Object> renameOptions;
