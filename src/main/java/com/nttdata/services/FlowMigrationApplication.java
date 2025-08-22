@@ -1,7 +1,9 @@
 package com.nttdata.services;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.nttdata.services.client.AccountApiClient;
 import com.nttdata.services.client.OrganizationApiClient;
+import com.nttdata.services.dto.FlowDto;
 import com.nttdata.services.model.AccountResponse;
 import com.nttdata.services.model.OrganizationResponse;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +12,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 
+import java.io.File;
 import java.util.List;
 
 @SpringBootApplication
@@ -77,6 +80,22 @@ public class FlowMigrationApplication implements CommandLineRunner {
                     System.out.println("Fecha de creación: " + org.getCreatedDate());
                     System.out.println("-----");
                 }
+
+                System.out.println("Lectura del archivo");
+                ObjectMapper mapper = new ObjectMapper();
+
+                // Ruta relativa al archivo JSON
+                File file = new File("flows/Flujo Angel.json");
+
+                // Mapeo del archivo al DTO
+                FlowDto flow = mapper.readValue(file, FlowDto.class);
+
+                // Ejemplo de uso
+                System.out.println("Nombre del flujo: " + flow.getName());
+                System.out.println("Código: " + flow.getCode());
+                System.out.println("Cantidad de Sources: " + flow.getSources().size());
+                System.out.println("Cantidad de Targets: " + flow.getTargets().size());
+
             } catch (Exception e) {
                 System.out.println("Error al llamar al API: " + e.getMessage());
             }

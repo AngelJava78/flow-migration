@@ -1,0 +1,148 @@
+{
+  "Sources": [
+    {
+      "Configuration": {
+        "Id": 15045,
+        "FlowEndpointId": 17645,
+        "IsEnabled": true,
+        "IsOverwriteExistingFiles": false,
+        "IsDeleteDeliveredFiles": false,
+        "IsCustomerArchive": false,
+        "AlertHour": 0,
+        "IsSubfolders": false,
+        "FlowEndpointName": "17645: AzureBlob",
+        "CreatedBy": "980",
+        "CreatedDate": "2025-08-22T06:48:47.533Z"
+      },
+      "Schedule": {
+        "FlowEndpointContinuousSchedule": {
+          "Id": 7333,
+          "FlowEndpointId": 17645,
+          "Period": "hours",
+          "Units": 1,
+          "CreatedBy": "980",
+          "CreatedDate": "2025-08-22T06:48:47.643Z"
+        },
+        "Id": 27218,
+        "FlowEndpointId": 17645,
+        "FlowScheduleTypeId": 1,
+        "CreatedBy": "980",
+        "CreatedDate": "2025-08-22T06:48:47.617Z"
+      },
+      "ServerPaths": [
+        {
+          "Id": 18903,
+          "FlowEndpointId": 17645,
+          "Path": "/",
+          "CreatedBy": "980",
+          "CreatedDate": "2025-08-22T06:48:47.577Z"
+        }
+      ],
+      "ServerPathMappings": [],
+      "ServerUsers": [],
+      "RenameOptions": [],
+      "RenameMappings": [],
+      "Triggers": {
+        "Id": 9249,
+        "FlowEndpointId": 17645,
+        "IsEnabled": true,
+        "IsTriggerSemaphoreFile": false,
+        "IsTriggerTemporaryFilename": true,
+        "IsTriggerBatchSemaphore": false,
+        "IsAddExtension": true,
+        "IsReplaceExtension": false,
+        "IsTemporaryPrefix": false,
+        "IsTemporaryExtension": false,
+        "CreatedBy": "980",
+        "CreatedDate": "2025-08-22T06:48:47.563Z",
+        "FilePrefix": "",
+        "FileExtension": ".filepart",
+        "BatchSemaphoreFilename": ""
+      },
+      "EmailNotifications": [],
+      "Id": 17645,
+      "FlowId": 8826,
+      "FlowEndpointTypeId": 1,
+      "EndpointId": 4490,
+      "CreatedBy": "980",
+      "CreatedDate": "2025-08-22T06:48:47.5Z"
+    }
+  ],
+  "Targets": [
+    {
+      "Configuration": {
+        "Id": 15046,
+        "FlowEndpointId": 17646,
+        "IsEnabled": true,
+        "IsOverwriteExistingFiles": false,
+        "IsDeleteDeliveredFiles": false,
+        "IsCustomerArchive": false,
+        "AlertHour": 0,
+        "IsSubfolders": false,
+        "FlowEndpointName": "17646: WindowsServerFiles",
+        "CreatedBy": "980",
+        "CreatedDate": "2025-08-22T06:48:52.12Z"
+      },
+      "Schedule": {
+        "FlowEndpointContinuousSchedule": {
+          "Id": 7334,
+          "FlowEndpointId": 17646,
+          "Period": "hours",
+          "Units": 1,
+          "CreatedBy": "980",
+          "CreatedDate": "2025-08-22T06:48:52.16Z"
+        },
+        "Id": 27219,
+        "FlowEndpointId": 17646,
+        "FlowScheduleTypeId": 1,
+        "CreatedBy": "980",
+        "CreatedDate": "2025-08-22T06:48:52.157Z"
+      },
+      "ServerPaths": [
+        {
+          "Id": 18904,
+          "FlowEndpointId": 17646,
+          "Path": "/",
+          "CreatedBy": "980",
+          "CreatedDate": "2025-08-22T06:48:52.123Z"
+        }
+      ],
+      "ServerPathMappings": [
+        {
+          "Id": 11486,
+          "FlowEndpointId": 17646,
+          "SourceFlowEndpointId": 0,
+          "SourceServerPathId": 0,
+          "TargetServerPathId": 18904,
+          "IsIncludeSubfolders": true,
+          "CreatedBy": "980",
+          "CreatedDate": "2025-08-22T06:48:52.14Z"
+        }
+      ],
+      "ServerUsers": [],
+      "RenameOptions": [],
+      "RenameMappings": [],
+      "EmailNotifications": [],
+      "Id": 17646,
+      "FlowId": 8826,
+      "FlowEndpointTypeId": 2,
+      "EndpointId": 4491,
+      "CreatedBy": "980",
+      "CreatedDate": "2025-08-22T06:48:52.11Z"
+    }
+  ],
+  "Id": 8826,
+  "TenantId": 135,
+  "Name": "Flujo Angel",
+  "FlowStatusId": 1,
+  "IsBroadcast": false,
+  "IsPublished": false,
+  "IsIPaaSSubscription": true,
+  "ConnectorId": 1,
+  "Code": "FLE423",
+  "Description": "Flujo Angel",
+  "CreatedBy": "980",
+  "CreatedDate": "2025-08-22T06:48:29.033Z",
+  "UpdatedBy": "980",
+  "UpdatedDate": "2025-08-22T06:49:05.883Z"
+}
