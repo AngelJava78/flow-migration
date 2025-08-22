@@ -1,11 +1,21 @@
 package com.nttdata.services;
 
+import com.nttdata.services.client.AccountApiClient;
+import com.nttdata.services.model.AccountResponse;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @SpringBootApplication
+@EnableFeignClients
+
 public class FlowMigrationApplication implements CommandLineRunner {
+
+
+  @Autowired
+  private AccountApiClient accountApiClient;
 
   public static void main(String[] args) {
     SpringApplication.run(FlowMigrationApplication.class, args);
@@ -38,6 +48,21 @@ public class FlowMigrationApplication implements CommandLineRunner {
 
       System.out.println("Name: " + name);
       System.out.println("Age: " + age);
+
+
+      String apiKey = "9d4ec223-0d61-41ad-809d-049f9380cc55";
+
+      try {
+        AccountResponse response = accountApiClient.getAccount(apiKey);
+        System.out.println("ID: " + response.getId());
+        System.out.println("Nombre: " + response.getFirstName());
+        System.out.println("Apellido: " + response.getLastName());
+        System.out.println("Email: " + response.getEmailAddress());
+      } catch (Exception e) {
+        System.out.println("Error al llamar al API: " + e.getMessage());
+      }
+
+
     } else {
       System.out.println("No se recibieron argumentos.");
     }
